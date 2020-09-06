@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-md navbar-light bg-dark">
+
+  <%= link_to '#' do %>
+    <%= content_tag :i, nil, :class => "fas fa-child text-warning fa-1x" %>
+  <% end %>
+
+  <ul class="navbar-nav">
+    <%= content_tag(:li, link_to("Home", "#", :class => "nav-link text-light text-uppercase font-weight-bold px-3"), :class => "nav-item") %>
+    <%= content_tag(:li, link_to("Skills", "#", :class => "nav-link text-light text-uppercase font-weight-bold px-3"), :class => "nav-item") %>
+
+    <%= content_tag(:li, :class => "nav-item dropdown", :data => { :toggle => "dropdown"}) do %>
+        <%= link_to("Projects", '#', :class => 'nav-link text-light text-uppercase font-weight-bold px-3 dropdown-toggle')%>
+          <%= content_tag(:div, :class => "dropdown-menu") do %>
+            <%= link_to("Project 1", "#", :class => "dropdown-item") %>
+            <%= link_to("Project 2", "#", :class => "dropdown-item") %>
+            <%= link_to("Project 3", "#", :class => "dropdown-item") %>
+            <%= link_to("Project 4", "#", :class => "dropdown-item") %>
+          <% end %>
+    <% end %>
+
+    <%= content_tag(:li, link_to("Team", "#", :class => "nav-link text-light text-uppercase font-weight-bold px-3"), :class => "nav-item") %>
+    <%= content_tag(:li, link_to("Contact", "#", :class => "nav-link text-light text-uppercase font-weight-bold px-3"), :class => "nav-item") %>
+  </ul>
+
+  <form class="form-inline">
+    <div class="input-group">
+        <%= text_field_tag nil, nil, :class => "form-control", :placeholder => "Search" %>
+        <div class="input-group-append">
+          <%= button_tag :type => "button", :class => "btn-light" do %>
+            <%= content_tag(:i, nil, :class => "fa fa-search text-muted") %>
+          <% end %>
+        </div>
+    </div>
+  </form>
+
+</nav>

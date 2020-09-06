@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    build: .
+    image: halvong/website
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_HOST: database
+      POSTGRES_USER: tom
+      POSTGRES_PASSWORD: tom
+      POSTGRES_DB: crm
+    volumes:
+      - .:/usr/src/app
+  database:
+    image: postgres
+    ports:
+      - "32772:5432"
+    environment:
+      POSTGRES_USER: tom
+      POSTGRES_PASSWORD: tom
+      POSTGRES_DB: website
+    volumes:
+      - db_data:/var/lib/postgresql/website_data
+volumes:
+  db_data:
